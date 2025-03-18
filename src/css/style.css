@@ -1,0 +1,24 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+:root {
+    font-size: 62.5%;
+
+    --bg-path: url("../../assets/images/bg-mobile.jpg");
+}
+
+body {
+    background-image: var(--bg-path);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+@media screen and (width > 800px) {
+    :root {
+        --bg-path: url("../../assets/images/bg-desktop.jpg");
+    }
+}
