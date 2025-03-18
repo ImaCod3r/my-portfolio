@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'SanFranciscoPro';
+    src: url('../../assets/fonts/SFPRODISPLAYREGULAR.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * { 
     margin: 0; 
     padding: 0; 
@@ -8,6 +15,9 @@
     font-size: 62.5%;
 
     --bg-path: url("../../assets/images/bg-mobile.jpg");
+    --text-color: #FFFFFF;
+    --border-color: #c6c6c6;
+    --text-font: 'SanFranciscoPro', sans-serif;
 }
 
 body {
@@ -15,6 +25,35 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+
+header {
+    padding: 2rem 4rem;
+}
+
+header nav {
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    padding: 2rem 4rem;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-item {
+    list-style: none;
+}
+
+.nav-link {
+    font-family: var(--text-font);
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.6rem;
 }
 
 @media screen and (width > 800px) {
