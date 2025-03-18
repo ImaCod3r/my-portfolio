@@ -17,14 +17,21 @@
     --bg-path: url("../../assets/images/bg-mobile.jpg");
     --text-color: #FFFFFF;
     --border-color: #c6c6c6;
-    --text-font: 'SanFranciscoPro', sans-serif;
+    --text-font: 'Inter', sans-serif;
+    --link-font: 'SanFranciscoPro', sans-serif;
 }
 
 body {
+    font-family: var(--text-font);
+
     background-image: var(--bg-path);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+
+h1, p {
+    color: var(--text-color);
 }
 
 header {
@@ -50,10 +57,50 @@ header nav {
 }
 
 .nav-link {
-    font-family: var(--text-font);
+    font-family: var(--link-font);
     color: var(--text-color);
     text-decoration: none;
     font-size: 1.6rem;
+}
+
+section {
+    padding: 2rem;
+}
+
+/* Main */
+/* Home section */
+section#home {
+    min-height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+#home h1 {
+    font-size: 3.2rem;
+}
+
+#home p {
+    font-size: 1.6rem;
+}
+
+#home h1 + p {
+    font-size: 1.8rem;
+}
+
+.link-button {
+    margin-top: 2rem;
+    padding: 1.5rem 4rem;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 @media screen and (width > 800px) {
