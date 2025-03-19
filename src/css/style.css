@@ -31,7 +31,7 @@ body {
         'Main'
         'Footer';
 
-    grid-template-rows: 100px auto 50px;
+    grid-template-rows: 100px auto 100px;
 
     font-family: var(--text-font);
     color: var(--text-color);
@@ -53,7 +53,6 @@ header {
 }
 
 header nav {
-
     border: 1px solid var(--border-color);
     border-radius: 50px;
     padding: 2rem 4rem;
@@ -63,6 +62,7 @@ header nav {
 }
 
 section {
+    min-height: 200px;
     padding: 2rem 4rem;
 }
 
@@ -150,8 +150,8 @@ section#about {
     gap: 2rem;
 }
 
-.profile-img {
-    min-width: 100%;
+div .profile-img {
+    width: 100%;
     max-height: 30rem;
     object-fit: cover;
 
@@ -310,8 +310,67 @@ footer {
     justify-content: center;
 }
 
+footer p {
+    font-size: 1.4rem;
+}
+
 @media screen and (width > 800px) {
     :root {
         --bg-path: url("../../assets/images/bg-desktop.jpg");
+    }
+
+    section {
+        height: 100vh;
+    }
+
+    header {
+        position: initial;
+    }
+
+    header nav {
+        width: 50rem;
+        margin: 0 auto;
+    }
+    
+    .nav-list {
+        justify-content: center;
+        gap: 2.5rem;
+    }
+
+    section#about {
+        justify-content: stretch;
+    }
+
+    section#home h1 {
+        font-size: 6.4rem;
+    }
+
+    section#home p {
+        font-size: 2.4rem;
+    }
+
+    #about div .profile-img {
+        width: 50%;
+        min-height: 40rem;
+    }
+
+    #about div p {
+        font-size: 2.8rem;
+        line-height: 3.2rem;
+        width: 50%;
+    }
+
+    #projects > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .project-card {
+        width: 30%;
+    }
+
+    .contact-form {
+        width: 50%;
     }
 }
