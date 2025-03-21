@@ -98,11 +98,8 @@ main {
 
 /* Home section */
 section#home {
-    min-height: 200px;
-
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 0.2rem;
 }
@@ -133,8 +130,6 @@ section#home {
 
 /* About section */
 section#about {
-    min-height: 200px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -184,11 +179,8 @@ div .profile-img {
 
 /* Projects section */
 section#projects {
-    min-height: 200px;
-
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -319,10 +311,6 @@ footer p {
         --bg-path: url("../../assets/images/bg-desktop.jpg");
     }
 
-    section {
-        height: 100vh;
-    }
-
     header {
         position: initial;
     }
@@ -338,7 +326,7 @@ footer p {
     }
 
     section#about {
-        justify-content: stretch;
+        
     }
 
     section#home h1 {
