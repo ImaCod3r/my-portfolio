@@ -80,3 +80,40 @@ section h2 {
     font-size: 1.8rem;
     font-weight: 500;
 }
+
+.links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.8rem;
+}
+
+.links a {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    padding: .5rem;
+    border-radius: .8rem;
+    border: solid 1px var(--border-color);
+
+    text-decoration: none;
+    font-size: 1.4rem;
+    
+    color: var(--text-color);
+    background-color: var(--bg-color);
+
+}
+
+.list-items {
+    display: flex;
+    gap: 0.8rem; 
+}
+
+.list-items li {
+    list-style: none;
+
+    background-color: var(--card-bg-color);
+    border: solid 1px var(--border-color);
+    border-radius: 10rem;
+    padding: 1rem;
+}
