@@ -117,3 +117,45 @@ section h2 {
     border-radius: 10rem;
     padding: 1rem;
 }
+
+.contact-form {
+    background-color: var(--card-bg-color);
+    
+    border-radius: 1.2rem;
+    border: solid 1px var(--border-color);
+    padding: 2.4rem;
+    max-width: 50%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    margin-bottom: 1rem;
+}
+
+input, 
+textarea {
+    background-color: var(--bg-color);
+
+    border-radius: 1.2rem;
+    border: none;
+    padding: 1rem;
+
+    color: var(--text-color);
+}
+
+.contact-form button {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+
+    border: solid 1px var(--border-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+}
