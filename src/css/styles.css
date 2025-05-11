@@ -138,7 +138,7 @@ input,
 textarea {
     background-color: var(--bg-color);
 
-    border-radius: 1.2rem;
+    border-radius: .8rem;
     border: none;
     padding: 1rem;
 
@@ -158,4 +158,20 @@ textarea {
     align-items: center;
     justify-content: center;
     gap: .8rem;
+}
+
+.social-links a {
+    font-size: 1.8rem;
+    text-decoration: none;
+
+    padding: 1.2rem;
+    margin-right: .8rem;
+    max-width: 5rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--text-color);
+    background-color: var(--card-bg-color);
 }
