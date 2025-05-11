@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    font-size: 62.5%;
+}
+
+main {
+    width: 67.2rem;
+    padding: 48px 24px;
+    margin: 0px auto;
+}
+
+.profile-section {
+    display: flex;
+    gap: 2rem;
+}
+
+.profile-img img {
+    width: 10rem;
+    height: 10rem;
+
+    border-radius: 1.2rem;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.6rem;
+}
