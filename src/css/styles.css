@@ -19,6 +19,21 @@ body {
     font-family: var(--text-font);
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
 h1 {
     font-size: 3.2rem;
 }
@@ -84,6 +99,59 @@ section h2 {
 .title {
     font-size: 1.8rem;
     font-weight: 500;
+}
+
+.project-modal {
+    background-color: var(--bg-color);
+    border-radius: 1.5rem;
+    border: solid 1px var(--border-color);
+    overflow: hidden;
+
+    width: 50rem;
+    min-height: 40rem;
+
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+.modal-header {
+    position: relative;
+}
+
+.modal-header div {
+  width: 100%;
+    height: 20rem;
+}
+
+.modal-header div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-header button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 2rem;
+
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.project-title {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
 }
 
 .links {
