@@ -123,7 +123,7 @@ section h2 {
     font-weight: 500;
 }
 
-.project-modal {
+#project-modal {
     background-color: var(--bg-color);
     border-radius: 1.5rem;
     border: solid 1px var(--border-color);
@@ -154,7 +154,7 @@ section h2 {
     object-fit: cover;
 }
 
-.modal-header button {
+#close-modal {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -169,6 +169,10 @@ section h2 {
 
 .modal-body {
     padding: 1.5rem;
+}
+
+.modal-body p {
+    margin-top: 1rem;
 }
 
 .project-title {

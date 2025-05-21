@@ -12,6 +12,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
+    <!-- Javascript -->
+     <script src="./src/js/main.js" defer></script>
     <title>Edson Rodrigues</title>
 </head>
 
@@ -43,7 +45,7 @@
             <h2>Projetos 👷‍♂️</h2>
 
             <div class="card-list">
-                <div class="card">
+                <!-- <div class="card">
                     <div>
                         <span class="title">
                             eBay best price tracker
@@ -62,49 +64,46 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            </div> <!-- card-list -->
+        </section>
 
-            <div class="project-modal hidden">
-                <div class="modal-content">
-                    <div class="modal-header">
-
-                        <button class="close-modal">
-                            <ion-icon name="close"></ion-icon>
-                        </button>
-
-                        <div>
-                            <img src="https://woz-u.com/wp-content/uploads/2022/06/Evolution-of-Coding-scaled.jpg"
-                                alt="project cover" />
-                        </div>
+        <!-- Project Modal deve estar fora da lista de cards e não comentado -->
+        <div id="project-modal" class="hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="close-modal">
+                        <ion-icon name="close"></ion-icon>
+                    </button>
+                    <div>
+                        <img src="https://woz-u.com/wp-content/uploads/2022/06/Evolution-of-Coding-scaled.jpg"
+                            alt="project cover" />
                     </div>
-
-                    <div class="modal-body">
-
-                        <h2 class="project-title">
-                            eBay best price tracker
-                        </h2>
-                        <p>
-                            Um projeto que visa ajudar os usuários a encontrar o melhor preço de produtos no eBay. O
-                            projeto utiliza Python para fazer scraping de dados do site e apresentar as informações de
-                            forma clara e concisa.
-                        </p>
-
-                        <div class="modal-footer">
-                            <div class="links">
-                                <a href="">
-                                    Ver repositório
-                                    <ion-icon name="logo-github"></ion-icon>
-                                </a>
-                                <a href="">
-                                    Web
-                                    <ion-icon name="globe-outline"></ion-icon>
-                                </a>
-                            </div>
+                </div>
+                <div class="modal-body">
+                    <h2 class="project-title">
+                        eBay best price tracker
+                    </h2>
+                    <p>
+                        Um projeto que visa ajudar os usuários a encontrar o melhor preço de produtos no eBay. O
+                        projeto utiliza Python para fazer scraping de dados do site e apresentar as informações de
+                        forma clara e concisa.
+                    </p>
+                    <div class="modal-footer">
+                        <div class="links">
+                            <a href="">
+                                Ver repositório
+                                <ion-icon name="logo-github"></ion-icon>
+                            </a>
+                            <a href="">
+                                Web
+                                <ion-icon name="globe-outline"></ion-icon>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <section>
             <h2>Idiomas 🌍</h2>
