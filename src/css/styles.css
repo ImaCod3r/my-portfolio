@@ -49,6 +49,7 @@ body {
     height: 100vh;
 
     background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
     z-index: 10;
 }
 
@@ -130,7 +131,7 @@ section h2 {
     overflow: hidden;
 
     width: 50rem;
-    min-height: 40rem;
+    max-height: 40rem;
 
     position: fixed;
     top: 10%;
@@ -189,7 +190,7 @@ section h2 {
 .links a {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: .1rem;
 
     padding: .5rem;
     border-radius: .8rem;
@@ -293,7 +294,67 @@ textarea {
         opacity ease-in-out 300ms;
 }
 
-.social-links a:hover {
+social-links a:hover {
     transform: scale(1.2);
     opacity: .8;
+}
+
+@media (max-width: 900px) {
+    main {
+        width: 100%;
+        padding: 32px 8px;
+    }
+    .project-modal, #project-modal {
+        width: 90vw;
+        min-width: unset;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    section h2 {
+        font-size: 1.5rem;
+    }
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .profile-img img {
+        width: 7rem;
+        height: 7rem;
+    }
+    .card-list {
+        gap: 1rem;
+    }
+    .card {
+        padding: 1.2rem;
+        font-size: 1.2rem;
+    }
+    .project-modal, #project-modal {
+        width: 98vw;
+        min-width: unset;
+        left: 50%;
+        top: 2%;
+        transform: translateX(-50%);
+    }
+    .modal-header div {
+        height: 10rem;
+    }
+    .contact-form {
+        max-width: 100%;
+        padding: 1.2rem;
+    }
+    .links a {
+        font-size: 1.1rem;
+        padding: .5rem;
+    }
+    /* .social-links a {
+        font-size: 1.2rem;
+        padding: .6rem;
+    } */
 }
