@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./src/css/admin.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Javascript -->
+    <script src="./src/js/admin.js" defer></script>
+</head>
+
+<body>
+    <div class="admin">
+        <header>
+
+        </header>
+
+        <aside>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="person"></ion-icon>
+                            Detalhes pessoais
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="folder"></ion-icon>
+                            Projetos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="chatbox"></ion-icon>
+                            Mensagens
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button id="logout-btn">
+                <ion-icon name="log-out"></ion-icon>
+                Sair
+            </button>
+        </aside>
+
+        <main>
+
+            <section id="personal-details">
+                <h2>Detalhes pessoais</h2>
+
+                <form id="personal-details-form">
+                    <div class="profile-pic">
+                        <img src="./src/assets/images/profile-image.jpg" alt="Edson's profile image">
+
+                        <input type="file" id="profile-pic-input" accept="image/*">
+
+                        <label for="profile-pic-input">
+                            <ion-icon name="camera"></ion-icon>
+                            <span>Alterar imagem</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" name="bio" rows="4" required></textarea>
+                    </div>
+
+                    <!-- <button id="save-btn">Salvar</button>
+                    <button id="discard-btn">Descartar</button> -->
+                
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
