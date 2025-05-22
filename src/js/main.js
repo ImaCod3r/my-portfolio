@@ -101,3 +101,38 @@ manager.setProjects([
 
 if (closeModalBtn) closeModalBtn.addEventListener('click', closeProjectModal);
 if (overlay) overlay.addEventListener('click', closeProjectModal);
+
+// Theme switch logic
+const switchThemeBtn = document.getElementById('switch-theme');
+const body = document.body;
+
+function getSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}
+
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const theme = savedTheme || getSystemTheme();
+    if (theme === 'light') {
+        body.classList.add('light-theme');
+        switchThemeBtn.innerHTML = '<ion-icon name="moon"></ion-icon>';
+    } else {
+        body.classList.remove('light-theme');
+        switchThemeBtn.innerHTML = '<ion-icon name="sunny"></ion-icon>';
+    }
+}
+
+function switchTheme() {
+    if (body.classList.contains('light-theme')) {
+        body.classList.remove('light-theme');
+        switchThemeBtn.innerHTML = '<ion-icon name="sunny"></ion-icon>';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        body.classList.add('light-theme');
+        switchThemeBtn.innerHTML = '<ion-icon name="moon"></ion-icon>';
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+loadTheme();
+switchThemeBtn.addEventListener('click', switchTheme);

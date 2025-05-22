@@ -13,10 +13,20 @@
     font-size: 62.5%;
 }
 
+body.light-theme {
+    --bg-color: #fff;
+    --text-color: #000000;
+    --card-bg-color: #fafafa;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: var(--text-font);
+
+    transition: background-color ease-in-out 300ms,
+        color ease-in-out 300ms;
 }
 
 #switch-theme {
@@ -33,10 +43,13 @@ body {
     border-radius: 50%;
     padding: 1rem;
 
+    transition: background-color ease-in-out 300ms,
+        color ease-in-out 300ms,
+        transform ease-in-out 300ms;
     cursor: pointer;
 }
 
-#switch-theme:hover {
+#switch-theme:active {
     background-color: var(--text-color);
     color: var(--bg-color);
 }
@@ -162,7 +175,7 @@ section h2 {
 
     background-color: transparent;
     border: none;
-    color: var(--text-color);
+    color: #fff;
     font-size: 2rem;
 
     cursor: pointer;
@@ -253,7 +266,7 @@ textarea {
     background-color: var(--bg-color);
 
     border-radius: .8rem;
-    border: none;
+    border: 1px solid var(--border-color);
     padding: 1rem;
 
     color: var(--text-color);
