@@ -160,3 +160,26 @@ section h2 {
 .profile-pic label:hover {
     opacity: 0.8;
 }
+
+.form-actions button {
+    padding: .8rem 1rem; 
+    border-radius: .8rem;
+    transition: opacity 300ms ease-in-out;
+}
+
+.form-actions button:hover {
+    opacity: .8;
+}
+
+#save-btn {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: 1px solid var(--card-bg-color);
+}
+
+#discard-btn {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+

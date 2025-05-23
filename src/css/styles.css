@@ -320,7 +320,7 @@ textarea {
         opacity ease-in-out 300ms;
 }
 
-social-links a:hover {
+.social-links a:hover {
     transform: scale(1.2);
     opacity: .8;
 }
