@@ -18,6 +18,8 @@
 </head>
 
 <body>
+    <div class="overlay"></div>
+
     <div class="admin">
         <header>
 
@@ -81,8 +83,8 @@
                     </div>
 
                     <div class="form-actions">
-                        <button id="save-btn">Salvar</button>
-                        <button id="discard-btn">Descartar</button>
+                        <button class="save-btn">Salvar</button>
+                        <button class="discard-btn">Descartar</button>
                     </div>
 
                 </form>
@@ -120,6 +122,48 @@
                         </button>
                     </div>
 
+                </div>
+
+                <div id="new-project-modal" class="active">
+
+                    <div class="modal-header">
+                        <h2>Adicionar projeto</h2>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <form id="new-project-form">
+                            <div class="form-group">
+                                <label for="project-name">Nome do projeto</label>
+                                <input type="text" id="project-name" name="project-name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-desc">Descrição</label>
+                                <textarea name="project-desc" id="project-desc" rows="5"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-files" class="file-drop-area">
+                                    <ion-icon name="image-outline"></ion-icon>
+                                    <span>Arraste arquivos aqui ou clique para selecionar</span>
+                                    <input type="file" id="project-files" 
+                                        name="project-files" 
+                                        multiple
+                                        style="display: none;"
+                                        accept="image/*">
+                                </label>
+                            </div>
+                        </form>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="form-actions">
+                            <button class="save-btn">Adicionar projeto</button>
+                            <button class="discard-btn">Descartar</button>
+                        </div>
+                    </div>
                 </div>
 
             </section>
