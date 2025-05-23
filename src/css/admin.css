@@ -10,6 +10,7 @@
     --card-bg-color: #1A1A1A99;
     --border-color: rgba(255, 255, 255, 0.1);
     --text-font: 'inter', sans-serif;
+    --secondary-text-color: #777;
     font-size: 62.5%;
 }
 
@@ -87,6 +88,11 @@ main {
 }
 
 section {
+    display: none;
+}
+
+section.active {
+    display: block;
     width: 100%;
 }
 
@@ -183,3 +189,59 @@ section h2 {
     border: 1px solid var(--border-color);
 }
 
+/* Projects section */
+#add-btn {
+    background: none;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    padding: 1rem;
+    border-radius: .8rem;
+
+    color: var(--secondary-text-color);
+    font-size: 1.6rem;
+}
+
+#add-btn:hover {
+    background-color: var(--card-bg-color);
+}
+
+.projects-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg-color);
+
+    transition: opacity ease-in-out 300ms;
+}
+
+.project-item:hover {
+    opacity: .8;
+}
+
+.project-item .delete-btn {
+    background: none;
+    border: none;
+
+    color: var(--secondary-text-color);
+    font-size: 1.8rem;
+    transition: opacity 300ms ease-in-out;
+}
+
+.delete-btn:hover {
+    opacity: .8;
+}
