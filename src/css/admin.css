@@ -321,3 +321,54 @@ section h2 {
     text-align: center;
 }
 
+/* Messages section */
+#messages select{
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+
+    padding: 1rem 2rem;
+}
+
+.messages-list {
+    margin-top: 3.2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg-color);
+}
+
+.message:hover {
+    opacity: 0.8;
+}
+
+.message .message-preview {
+    display: inline-block;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.4rem;
+
+    color: var(--secondary-text-color);
+}
+
+.message .message-title.read {
+    font-weight: 400;
+}

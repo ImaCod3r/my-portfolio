@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <div class="overlay"></div>
+    <div class="overlay hidden"></div>
 
     <div class="admin">
         <header>
@@ -91,7 +91,7 @@
 
             </section>
 
-            <section id="projects" class="active">
+            <section id="projects">
                 <h2>Projetos</h2>
 
                 <button id="add-btn">
@@ -124,7 +124,7 @@
 
                 </div>
 
-                <div id="new-project-modal" class="active">
+                <div id="new-project-modal">
 
                     <div class="modal-header">
                         <h2>Adicionar projeto</h2>
@@ -147,11 +147,8 @@
                                 <label for="project-files" class="file-drop-area">
                                     <ion-icon name="image-outline"></ion-icon>
                                     <span>Arraste arquivos aqui ou clique para selecionar</span>
-                                    <input type="file" id="project-files" 
-                                        name="project-files" 
-                                        multiple
-                                        style="display: none;"
-                                        accept="image/*">
+                                    <input type="file" id="project-files" name="project-files" multiple
+                                        style="display: none;" accept="image/*">
                                 </label>
                             </div>
                         </form>
@@ -166,6 +163,29 @@
                     </div>
                 </div>
 
+            </section>
+
+            <section id="messages" class="active">
+                <select name="category" id="category">
+                    <option value="all">Todas</option>
+                    <option value="unread">Não lidas</option>
+                </select>
+
+                <div class="messages-list">
+                    <div class="message">
+                        <h3 class="message-title">Unread message</h3>
+                        <span class="message-preview">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure,
+                            aspernatur incidunt praesentium reiciendis perspiciatis, quia nemo porro molestias
+                            laboriosam ratione eaque laudantium magni numquam ea, quo harum minima ipsam aut?</span>
+                    </div>
+
+                    <div class="message">
+                        <h3 class="message-title read">Past message</h3>
+                        <span class="message-preview">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure,
+                            aspernatur incidunt praesentium reiciendis perspiciatis, quia nemo porro molestias
+                            laboriosam ratione eaque laudantium magni numquam ea, quo harum minima ipsam aut?</span>
+                    </div>
+                </div>
             </section>
 
         </main>
