@@ -90,13 +90,7 @@ manager.setProjects([
         repoUrl: '#',
         webUrl: '#',
         description: 'Um projeto que visa ajudar os usuários a encontrar o melhor preço de produtos no eBay. O projeto utiliza Python para fazer scraping de dados do site e apresentar as informações de forma clara e concisa.'
-    },
-    {
-        title: 'Outro projeto',
-        repoUrl: '#',
-        webUrl: '#',
-        description: 'Descrição do segundo projeto.'
-    },
+    }
 ]);
 
 if (closeModalBtn) closeModalBtn.addEventListener('click', closeProjectModal);
