@@ -17,6 +17,7 @@ import Dashboard from './pages/admin/Dashboard';
 import ProjectsManager from './pages/admin/ProjectsManager';
 import Messages from './pages/admin/Messages';
 import Settings from './pages/admin/Settings';
+import NotFound from './pages/NotFound';
 
 function HomePage() {
   return (
@@ -55,6 +56,9 @@ function App() {
               <Route path="settings" element={<Settings />} />
             </Route>
           </Route>
+
+          {/* Fallback Route */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
         
         {!isAdminRoute && <Footer />}
