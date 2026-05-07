@@ -63,7 +63,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Localização</p>
-                  <p className="text-lg font-medium">Cabinda, Angola</p>
+                  <p className="text-lg font-medium">Talatona, Luanda, Angola</p>
                 </div>
               </div>
             </div>
