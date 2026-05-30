@@ -52,7 +52,7 @@ export default function ProjectDetails() {
     <div className="min-h-screen bg-black text-gray-300 font-sans selection:bg-white/30">
       {/* Header Image */}
       <div className="relative h-[40vh] md:h-[50vh] w-full overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black z-10"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-transparent to-black z-10"></div>
         <img 
           src={project.image} 
           alt={project.title} 
