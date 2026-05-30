@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface ModalProps {
@@ -14,7 +13,7 @@ export default function Modal({ isOpen, onClose, title, children, footer, type =
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
       <div 
         className={`bg-gray-900 border ${type === 'danger' ? 'border-red-500/50' : 'border-white/20'} 
         rounded-xl w-full max-w-lg shadow-2xl transform transition-all scale-100 p-6`}
