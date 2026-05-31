@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-scroll';
+import { useState, useEffect } from "react";
+import { Link } from "react-scroll";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,23 +11,23 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Início', to: 'home' },
-    { name: 'Sobre', to: 'about' },
-    { name: 'Projetos', to: 'projects' },
-    { name: 'Contato', to: 'contact' },
+    { name: "Início", to: "home" },
+    { name: "Sobre", to: "about" },
+    { name: "Projetos", to: "projects" },
+    { name: "Contato", to: "contact" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-black/80 backdrop-blur-lg shadow-lg shadow-white/10'
-          : 'bg-transparent'
+          ? "bg-black/80 backdrop-blur-lg shadow-lg shadow-white/10"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,37 +63,39 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden relative w-10 h-10 text-white hover:text-gray-300 focus:outline-none"
+            className="md:hidden relative w-10 h-10 text-white hover:text-gray-300 hover:bg-transparent"
             aria-label="Toggle menu"
           >
             <span className="sr-only">Abrir menu</span>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <span
                 className={`block absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${
-                  isOpen ? 'rotate-45' : '-translate-y-2'
+                  isOpen ? "rotate-45" : "-translate-y-2"
                 }`}
               ></span>
               <span
                 className={`block absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${
-                  isOpen ? 'opacity-0' : 'opacity-100'
+                  isOpen ? "opacity-0" : "opacity-100"
                 }`}
               ></span>
               <span
                 className={`block absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${
-                  isOpen ? '-rotate-45' : 'translate-y-2'
+                  isOpen ? "-rotate-45" : "translate-y-2"
                 }`}
               ></span>
             </div>
-          </button>
+          </Button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-4 pt-2 pb-6 space-y-3 bg-black/95 backdrop-blur-lg shadow-lg border-t border-white/20">

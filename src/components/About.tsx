@@ -1,14 +1,14 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import edsonPhoto from '../assets/edson.jpg';
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import edsonPhoto from "../assets/edson.jpg";
 
 export default function About() {
   const codeRef = useRef<HTMLPreElement>(null);
 
   useEffect(() => {
     if (codeRef.current) {
-      const lines = codeRef.current.querySelectorAll('.code-line');
-      
+      const lines = codeRef.current.querySelectorAll(".code-line");
+
       gsap.fromTo(
         lines,
         { opacity: 0, x: -20 },
@@ -17,9 +17,9 @@ export default function About() {
           x: 0,
           duration: 0.3,
           stagger: 0.1,
-          ease: 'power2.out',
+          ease: "power2.out",
           delay: 0.3,
-        }
+        },
       );
     }
   }, []);
@@ -28,20 +28,16 @@ export default function About() {
     name: "Edson Rodrigues",
     age: 20,
     location: {
-      city: "Cabinda",
-      country: "Angola"
+      city: "Luanda",
+      country: "Angola",
     },
     role: "Full Stack Developer",
     experience: {
       years: 5,
-      technologies: [
-        "Web Development",
-        "Python",
-        "Java"
-      ]
+      technologies: ["Reactjs", "Nextjs", "Angular", "Typescript", "Express"],
     },
     passion: "Transformando ideias em código",
-    available: true
+    available: true,
   };
 
   return (
@@ -55,7 +51,7 @@ export default function About() {
         style={{
           backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
                            linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
+          backgroundSize: "50px 50px",
         }}
       ></div>
 
@@ -67,7 +63,9 @@ export default function About() {
             <span className="text-white">Sobre Mim</span>
             <span className="text-white/50">/&gt;</span>
           </h2>
-          <p className="text-gray-500 text-lg">Conheça um pouco mais sobre minha jornada</p>
+          <p className="text-gray-500 text-lg">
+            Conheça um pouco mais sobre mim
+          </p>
         </div>
 
         {/* Content Grid */}
@@ -77,7 +75,7 @@ export default function About() {
             <div className="relative group">
               {/* Decorative border */}
               <div className="absolute -inset-4 bg-gradient-to-r from-white/10 to-gray-500/10 rounded-lg blur-lg group-hover:blur-xl transition-all duration-300"></div>
-              
+
               {/* Photo container */}
               <div className="relative">
                 <div className="absolute -inset-1 bg-white/20 rounded-lg"></div>
@@ -89,7 +87,6 @@ export default function About() {
                   />
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -103,33 +100,69 @@ export default function About() {
                   <div className="w-3 h-3 rounded-full bg-gray-600"></div>
                   <div className="w-3 h-3 rounded-full bg-white/70"></div>
                 </div>
-                <span className="ml-4 text-gray-400 text-sm font-mono">about.json</span>
+                <span className="ml-4 text-gray-400 text-sm font-mono">
+                  about.md
+                </span>
               </div>
 
               {/* Code content */}
               <div className="bg-gray-950 rounded-b-lg border border-white/20 p-6 font-mono text-sm overflow-x-auto">
                 <pre ref={codeRef} className="text-gray-300">
-                  <div className="code-line"><span className="text-white opacity-50">{'{'}</span></div>
-                  <div className="code-line">  <span className="text-gray-400">"name"</span>: <span className="text-white">"{developerInfo.name}"</span>,</div>
-                  <div className="code-line">  <span className="text-gray-400">"age"</span>: <span className="text-white">{developerInfo.age}</span>,</div>
-                  <div className="code-line">  <span className="text-gray-400">"location"</span>: <span className="text-white/50">{'{'}</span></div>
-                  <div className="code-line">    <span className="text-gray-400">"city"</span>: <span className="text-white">"{developerInfo.location.city}"</span>,</div>
-                  <div className="code-line">    <span className="text-gray-400">"country"</span>: <span className="text-white">"{developerInfo.location.country}"</span></div>
-                  <div className="code-line">  <span className="text-white/50">{'}'}</span>,</div>
-                  <div className="code-line">  <span className="text-gray-400">"role"</span>: <span className="text-white">"{developerInfo.role}"</span>,</div>
-                  <div className="code-line">  <span className="text-gray-400">"experience"</span>: <span className="text-white/50">{'{'}</span></div>
-                  <div className="code-line">    <span className="text-gray-400">"years"</span>: <span className="text-white">{developerInfo.experience.years}</span>,</div>
-                  <div className="code-line">    <span className="text-gray-400">"technologies"</span>: <span className="text-white/50">[</span></div>
+                  <div className="code-line">
+                    <span className="text-blue-400 font-bold">#</span>{" "}
+                    <span className="text-white font-bold">
+                      {developerInfo.name}
+                    </span>
+                  </div>
+                  <div className="code-line">
+                    <span className="text-gray-400">{developerInfo.role}</span>
+                  </div>
+                  <div className="code-line">
+                    <br />
+                  </div>
+                  <div className="code-line">
+                    <span className="text-blue-400 font-bold">##</span>{" "}
+                    <span className="text-white font-bold">Resumo</span>
+                  </div>
+                  <div className="code-line">
+                    <span className="text-gray-500">-</span> Idade:{" "}
+                    <span className="text-white">{developerInfo.age}</span>
+                  </div>
+                  <div className="code-line">
+                    <span className="text-gray-500">-</span> Local:{" "}
+                    <span className="text-white">
+                      {developerInfo.location.city},{" "}
+                      {developerInfo.location.country}
+                    </span>
+                  </div>
+                  <div className="code-line">
+                    <br />
+                  </div>
+                  <div className="code-line">
+                    <span className="text-blue-400 font-bold">##</span>{" "}
+                    <span className="text-white font-bold">
+                      Experiência ({developerInfo.experience.years} anos)
+                    </span>
+                  </div>
+                  <div className="code-line">
+                    <span className="text-gray-500">-</span> Tecnologias:
+                  </div>
                   {developerInfo.experience.technologies.map((tech, index) => (
                     <div key={index} className="code-line">
-                      {"      "}<span className="text-white">"{tech}"</span>{index < developerInfo.experience.technologies.length - 1 ? ',' : ''}
+                      {"  "}
+                      <span className="text-gray-500">-</span>{" "}
+                      <span className="text-gray-300">{tech}</span>
                     </div>
                   ))}
-                  <div className="code-line">    <span className="text-white/50">]</span></div>
-                  <div className="code-line">  <span className="text-white/50">{'}'}</span>,</div>
-                  <div className="code-line">  <span className="text-gray-400">"passion"</span>: <span className="text-white">"{developerInfo.passion}"</span>,</div>
-                  <div className="code-line">  <span className="text-gray-400">"available"</span>: <span className="text-white">{developerInfo.available.toString()}</span></div>
-                  <div className="code-line"><span className="text-white/50">{'}'}</span></div>
+                  <div className="code-line">
+                    <br />
+                  </div>
+                  <div className="code-line">
+                    <span className="text-green-400 font-bold">&gt;</span>{" "}
+                    <span className="text-gray-400 italic">
+                      "{developerInfo.passion}"
+                    </span>
+                  </div>
                 </pre>
               </div>
 

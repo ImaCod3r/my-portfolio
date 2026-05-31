@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { supabase } from "../../lib/supabaseClient";
 import Modal from "../../components/ui/Modal";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 interface LinkRecord {
   id: string;
@@ -214,14 +215,11 @@ export default function LinksManager() {
               />
             </div>
 
-            <button
-              type="submit"
-              disabled={saving}
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-200 disabled:bg-gray-800 disabled:text-gray-500 text-black font-bold px-5 py-3 rounded-lg transition-colors"
-            >
-              {saving ? <FaSpinner className="animate-spin" /> : <FaLink />}
+            <Button type="submit" size="lg" disabled={saving} className="px-5">
+              {saving && <FaSpinner className="animate-spin" />}
+              {!saving && <FaLink />}
               {saving ? "Encurtando..." : "Encurtar"}
-            </button>
+            </Button>
           </form>
 
           {feedback && (
@@ -252,22 +250,18 @@ export default function LinksManager() {
                   </a>
 
                   <div className="flex items-center gap-2">
-                    <button
+                    <Button
                       type="button"
+                      variant="outline"
                       onClick={() => handleCopy(shortUrl)}
-                      className="inline-flex items-center gap-2 rounded-lg border border-gray-700 px-3 py-2 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
                     >
                       <FaCopy />
                       Copiar
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleShare(shortUrl)}
-                      className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-semibold text-black hover:bg-gray-200 transition-colors"
-                    >
+                    </Button>
+                    <Button type="button" onClick={() => handleShare(shortUrl)}>
                       <FaShareAlt />
                       Compartilhar
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -297,13 +291,9 @@ export default function LinksManager() {
                 Os 10 registros mais recentes na tabela links.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={fetchLinks}
-              className="text-sm text-gray-400 hover:text-white transition-colors"
-            >
+            <Button type="button" variant="ghost" onClick={fetchLinks}>
               Atualizar
-            </button>
+            </Button>
           </div>
 
           {loading ? (
@@ -344,39 +334,38 @@ export default function LinksManager() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <button
+                      <Button
                         type="button"
+                        variant="outline"
                         onClick={() => handleCopy(finalUrl)}
-                        className="inline-flex items-center gap-2 rounded-lg border border-gray-700 px-3 py-2 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
                       >
                         <FaCopy />
                         Copiar
-                      </button>
-                      <button
+                      </Button>
+                      <Button
                         type="button"
                         onClick={() => handleShare(finalUrl)}
-                        className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-semibold text-black hover:bg-gray-200 transition-colors"
                       >
                         <FaShareAlt />
                         Compartilhar
-                      </button>
+                      </Button>
                       <a
                         href={link.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-lg border border-gray-700 px-3 py-2 text-sm text-gray-200 hover:bg-gray-800 transition-colors"
+                        className={buttonVariants({ variant: "outline" })}
                       >
                         <FaExternalLinkAlt />
                         Abrir origem
                       </a>
-                      <button
+                      <Button
                         type="button"
+                        variant="destructive"
                         onClick={() => confirmDelete(link)}
-                        className="inline-flex items-center gap-2 rounded-lg border border-red-500/40 px-3 py-2 text-sm text-red-400 hover:bg-red-500/10 transition-colors"
                       >
                         <FaTrash />
                         Deletar
-                      </button>
+                      </Button>
                     </div>
                   </article>
                 );
@@ -397,25 +386,26 @@ export default function LinksManager() {
         type="danger"
         footer={
           <>
-            <button
+            <Button
+              variant="ghost"
               onClick={() => {
                 if (deleting) return;
                 setIsDeleteModalOpen(false);
                 setLinkToDelete(null);
               }}
-              className="px-4 py-2 rounded text-gray-400 hover:text-white hover:bg-gray-800 transition-colors disabled:opacity-50"
               disabled={deleting}
             >
               Cancelar
-            </button>
-            <button
+            </Button>
+            <Button
+              variant="destructive"
               onClick={executeDelete}
               disabled={deleting}
-              className="px-4 py-2 rounded bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white transition-colors border border-red-500/50 disabled:opacity-50 inline-flex items-center gap-2"
             >
-              {deleting ? <FaSpinner className="animate-spin" /> : <FaTrash />}
+              {deleting && <FaSpinner className="animate-spin" />}
+              {!deleting && <FaTrash />}
               Excluir
-            </button>
+            </Button>
           </>
         }
       >

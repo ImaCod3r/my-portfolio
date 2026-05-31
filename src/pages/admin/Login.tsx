@@ -1,12 +1,13 @@
-import { useState } from 'react';
-import { supabase } from '../../lib/supabaseClient';
-import { useNavigate } from 'react-router-dom';
-import Modal from '../../components/ui/Modal';
-import { FaExclamationCircle } from 'react-icons/fa';
+import { useState } from "react";
+import { supabase } from "../../lib/supabaseClient";
+import { useNavigate } from "react-router-dom";
+import Modal from "../../components/ui/Modal";
+import { FaExclamationCircle } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ export default function Login() {
       setError(error.message);
       setLoading(false);
     } else {
-      navigate('/admin/dashboard');
+      navigate("/admin/dashboard");
     }
   };
 
@@ -38,7 +39,9 @@ export default function Login() {
 
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label className="block text-gray-400 text-sm font-bold mb-2">Email</label>
+            <label className="block text-gray-400 text-sm font-bold mb-2">
+              Email
+            </label>
             <input
               type="email"
               value={email}
@@ -48,7 +51,9 @@ export default function Login() {
             />
           </div>
           <div>
-            <label className="block text-gray-400 text-sm font-bold mb-2">Password</label>
+            <label className="block text-gray-400 text-sm font-bold mb-2">
+              Password
+            </label>
             <input
               type="password"
               value={password}
@@ -57,13 +62,9 @@ export default function Login() {
               required
             />
           </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-white hover:bg-gray-200 text-black font-bold py-3 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {loading ? 'Entrando...' : 'Entrar'}
-          </button>
+          <Button type="submit" size="lg" disabled={loading} className="w-full">
+            {loading ? "Entrando..." : "Entrar"}
+          </Button>
         </form>
       </div>
 
@@ -73,17 +74,18 @@ export default function Login() {
         title="Erro de Login"
         type="danger"
         footer={
-           <button 
-              onClick={() => setError(null)}
-              className="px-4 py-2 rounded bg-gray-800 text-white hover:bg-gray-700 transition-colors"
-            >
-              Tentar Novamente
-            </button>
+          <Button variant="outline" onClick={() => setError(null)}>
+            Tentar Novamente
+          </Button>
         }
       >
         <div className="flex items-center gap-4">
           <FaExclamationCircle className="text-3xl text-red-500" />
-          <p className="text-gray-300">{error === 'Invalid login credentials' ? 'Credenciais inválidas. Verifique seu email e senha.' : error}</p>
+          <p className="text-gray-300">
+            {error === "Invalid login credentials"
+              ? "Credenciais inválidas. Verifique seu email e senha."
+              : error}
+          </p>
         </div>
       </Modal>
     </div>

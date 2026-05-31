@@ -11,6 +11,7 @@ import {
   FaCog,
   FaLink,
 } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
 
 export default function AdminLayout() {
   const { signOut } = useAuth();
@@ -33,12 +34,14 @@ export default function AdminLayout() {
           <span className="text-white/50">&lt;</span>Admin
           <span className="text-white/50">/&gt;</span>
         </h1>
-        <button
+        <Button
+          variant="ghost"
+          size="icon"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="text-gray-400 hover:text-white p-2"
+          className="text-gray-400 hover:text-white"
         >
           {isSidebarOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-        </button>
+        </Button>
       </div>
 
       {/* Sidebar Overlay */}
@@ -61,12 +64,14 @@ export default function AdminLayout() {
             <span className="text-white/50">/&gt;</span>
           </h1>
           {/* Close button for mobile inside sidebar */}
-          <button
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={() => setIsSidebarOpen(false)}
             className="md:hidden text-gray-400 hover:text-white"
           >
             <FaTimes size={20} />
-          </button>
+          </Button>
         </div>
 
         <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
@@ -88,13 +93,15 @@ export default function AdminLayout() {
         </nav>
 
         <div className="p-4 border-t border-gray-800">
-          <button
+          <Button
+            variant="ghost"
+            size="lg"
             onClick={() => signOut()}
-            className="flex items-center gap-3 px-4 py-3 w-full text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
+            className="flex items-center justify-start gap-3 w-full text-red-400 hover:bg-red-500/10 hover:text-red-400 font-normal mt-2"
           >
             <FaSignOutAlt />
             Sair
-          </button>
+          </Button>
         </div>
       </aside>
 

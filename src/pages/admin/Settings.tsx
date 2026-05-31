@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import { supabase } from '../../lib/supabaseClient';
-import { FaFilePdf, FaUpload, FaDownload, FaTrash } from 'react-icons/fa';
-import Modal from '../../components/ui/Modal';
+import { useState, useEffect } from "react";
+import { supabase } from "../../lib/supabaseClient";
+import { FaFilePdf, FaUpload, FaDownload, FaTrash } from "react-icons/fa";
+import Modal from "../../components/ui/Modal";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export default function Settings() {
   const [cvFile, setCvFile] = useState<File | null>(null);
@@ -16,26 +17,24 @@ export default function Settings() {
   const fetchCvUrl = async () => {
     try {
       // We check if cv.pdf exists in the portfolio bucket
-      const { data, error } = await supabase.storage
-        .from('portfolio')
-        .list();
+      const { data, error } = await supabase.storage.from("portfolio").list();
 
       if (error) throw error;
 
-      const hasCv = data?.some(file => file.name === 'cv.pdf');
+      const hasCv = data?.some((file) => file.name === "cv.pdf");
 
       if (hasCv) {
         const { data: publicUrlData } = supabase.storage
-          .from('portfolio')
-          .getPublicUrl('cv.pdf');
-        
+          .from("portfolio")
+          .getPublicUrl("cv.pdf");
+
         // Add a timestamp to avoid caching issues during upload/preview
         setCvUrl(`${publicUrlData.publicUrl}?t=${new Date().getTime()}`);
       } else {
         setCvUrl(null);
       }
     } catch (error) {
-      console.error('Error fetching CV:', error);
+      console.error("Error fetching CV:", error);
     }
   };
 
@@ -45,20 +44,21 @@ export default function Settings() {
     setUploading(true);
     try {
       const { error } = await supabase.storage
-        .from('portfolio')
-        .upload('cv.pdf', cvFile, {
+        .from("portfolio")
+        .upload("cv.pdf", cvFile, {
           upsert: true,
-          contentType: 'application/pdf'
+          contentType: "application/pdf",
         });
 
       if (error) throw error;
 
-      setAlertMessage('CV atualizado com sucesso!');
+      setAlertMessage("CV atualizado com sucesso!");
       fetchCvUrl();
       setCvFile(null);
     } catch (error: unknown) {
-      const message = error instanceof Error ? error.message : 'Erro desconhecido';
-      setAlertMessage('Erro ao fazer upload: ' + message);
+      const message =
+        error instanceof Error ? error.message : "Erro desconhecido";
+      setAlertMessage("Erro ao fazer upload: " + message);
     } finally {
       setUploading(false);
     }
@@ -67,16 +67,17 @@ export default function Settings() {
   const handleDelete = async () => {
     try {
       const { error } = await supabase.storage
-        .from('portfolio')
-        .remove(['cv.pdf']);
+        .from("portfolio")
+        .remove(["cv.pdf"]);
 
       if (error) throw error;
 
-      setAlertMessage('CV removido com sucesso!');
+      setAlertMessage("CV removido com sucesso!");
       setCvUrl(null);
     } catch (error: unknown) {
-      const message = error instanceof Error ? error.message : 'Erro desconhecido';
-      setAlertMessage('Erro ao remover: ' + message);
+      const message =
+        error instanceof Error ? error.message : "Erro desconhecido";
+      setAlertMessage("Erro ao remover: " + message);
     }
   };
 
@@ -101,26 +102,35 @@ export default function Settings() {
                   <FaFilePdf className="text-red-500 text-2xl" />
                   <div>
                     <p className="text-white font-medium">cv.pdf</p>
-                    <p className="text-gray-500 text-xs">Arquivo carregado atualmente</p>
+                    <p className="text-gray-500 text-xs">
+                      Arquivo carregado atualmente
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <a 
-                    href={cvUrl} 
-                    target="_blank" 
+                  <a
+                    href={cvUrl}
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 text-blue-400 hover:bg-blue-500/10 rounded transition-colors"
+                    className={buttonVariants({
+                      variant: "ghost",
+                      size: "icon",
+                      className:
+                        "text-blue-400 hover:text-blue-400 hover:bg-blue-500/10",
+                    })}
                     title="Visualizar"
                   >
                     <FaDownload />
                   </a>
-                  <button 
+                  <Button
+                    variant="ghost"
+                    size="icon"
                     onClick={handleDelete}
-                    className="p-2 text-red-400 hover:bg-red-500/10 rounded transition-colors"
+                    className="text-red-400 hover:text-red-300 hover:bg-red-500/10"
                     title="Excluir"
                   >
                     <FaTrash />
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -132,37 +142,40 @@ export default function Settings() {
 
           <div className="space-y-4">
             <div className="relative">
-              <input 
-                type="file" 
+              <input
+                type="file"
                 id="cv-upload"
                 accept=".pdf"
-                onChange={e => {
+                onChange={(e) => {
                   if (e.target.files && e.target.files[0]) {
                     setCvFile(e.target.files[0]);
                   }
                 }}
                 className="hidden"
               />
-              <label 
+              <label
                 htmlFor="cv-upload"
                 className="flex items-center justify-center gap-2 w-full bg-gray-800 hover:bg-gray-700 text-white p-3 rounded cursor-pointer border border-gray-700 transition-colors"
               >
-                <FaUpload /> {cvFile ? 'PDF Selecionado' : 'Selecionar Novo PDF'}
+                <FaUpload />{" "}
+                {cvFile ? "PDF Selecionado" : "Selecionar Novo PDF"}
               </label>
               {cvFile && (
                 <p className="text-xs text-white mt-2 flex items-center gap-2">
-                  Pronto para upload: <span className="font-mono">{cvFile.name}</span>
+                  Pronto para upload:{" "}
+                  <span className="font-mono">{cvFile.name}</span>
                 </p>
               )}
             </div>
 
-            <button
+            <Button
               onClick={handleUpload}
               disabled={!cvFile || uploading}
-              className="w-full bg-white hover:bg-gray-200 disabled:bg-gray-800 disabled:text-gray-500 text-black font-bold py-3 rounded-lg transition-all shadow-lg shadow-white/5"
+              size="lg"
+              className="w-full"
             >
-              {uploading ? 'Enviando...' : 'Salvar Currículo'}
-            </button>
+              {uploading ? "Enviando..." : "Salvar Currículo"}
+            </Button>
           </div>
         </div>
       </div>
@@ -173,12 +186,9 @@ export default function Settings() {
         title="Notificação"
         type="default"
         footer={
-          <button 
-            onClick={() => setAlertMessage(null)}
-            className="px-4 py-2 rounded bg-gray-800 text-white hover:bg-gray-700 transition-colors"
-          >
+          <Button variant="outline" onClick={() => setAlertMessage(null)}>
             OK
-          </button>
+          </Button>
         }
       >
         <p>{alertMessage}</p>
